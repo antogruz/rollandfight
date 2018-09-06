@@ -30,7 +30,7 @@ def random_gap():
     return 5
 
 def random_event(n):
-    if coinflip():
+    if random.randint(0, 2):
         return random_encounter(n)
     else:
         return random_location(n)
