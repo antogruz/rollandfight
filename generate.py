@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import random
+from patterns import *
 
 fullsize = 25
 
@@ -35,22 +36,16 @@ def random_event(n):
         return random_location(n)
 
 def random_encounter(n):
-    outputs = how_many_outputs()
-    result = str(n) + "-"
-    for i in range(outputs):
-        if i > 0:
-            result += " | "
-        result += "monster"
+    pattern = random_pattern()
+    return pattern.get(n)
 
-    return result
-
-def how_many_outputs():
+def random_pattern():
     draw = random.randint(0, 10)
     if draw < 7 :
-        return 1
+        return SurviveOrWin()
     if draw < 10 :
-        return 2
-    return 3
+        return MultipleWays(1)
+    return MultipleWays(2)
 
 def random_location(n):
     return str(n) + "location"
