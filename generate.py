@@ -5,7 +5,7 @@ import random
 fullsize = 25
 
 def main():
-    print(generate(0))
+    print([2] + generate(2))
 
 def generate(n):
     gap = random_gap()
